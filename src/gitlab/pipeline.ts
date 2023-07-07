@@ -1,4 +1,4 @@
-import { GitlabCI } from "https://deno.land/x/fluent_gitlab_ci@v0.3.1/mod.ts";
+import { GitlabCI } from "fluent_gitlab_ci";
 
 export const installNix = `
   apt update -y
