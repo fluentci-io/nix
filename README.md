@@ -34,7 +34,7 @@ before_script:
 
 ```
 
-This package also provides a Nix Installer for [Dagger CI/CD](https://dagger.io/):
+This package also provides a Nix Installer for [Dagger](https://dagger.io/) pipelines:
 
 ```ts
 import Client, { connect } from "https://esm.sh/@dagger.io/dagger@0.6.3";
