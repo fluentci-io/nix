@@ -1,5 +1,5 @@
 import Client, { connect } from "@dagger.io/dagger";
-import { withNix } from "./step.ts";
+import { withNix } from "./steps.ts";
 
 connect(async (client: Client) => {
   const ctr = withNix(

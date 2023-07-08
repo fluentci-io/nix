@@ -57,3 +57,31 @@ connect(async (client: Client) => {
 });
 
 ```
+
+## 🧬 Advanced Usage
+
+You can also setup [devbox](https://www.jetpack.io/devbox/), [devenv](https://devenv.sh/) or [flox](https://floxdev.com/) by importing `withDevbox`, `withDevenv` or `withFlox` from `nix_installer_pipeline`:
+
+```ts
+import Client, { connect } from "@dagger.io/dagger";
+import { Dagger } from "https://deno.land/x/nix_installer_pipeline/mod.ts";
+
+const { withDevbox, withNix } = Dagger;
+
+connect(async (client: Client) => {
+  // you can use withDevbox, withDevenv or withFlox
+  const ctr = withDevbox(
+    withNix(
+      client
+        .pipeline("nix-installer")
+        .container()
+        .from("alpine")
+        .withExec(["apk", "add", "curl", "bash"])
+    )
+  );
+
+  const result = await ctr.stdout();
+
+  console.log(result);
+});
+```
