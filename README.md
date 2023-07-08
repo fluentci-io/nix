@@ -58,7 +58,7 @@ connect(async (client: Client) => {
 
 ```
 
-## 🧬 Advanced Usage
+## 🧪 Advanced Usage
 
 You can also setup [devbox](https://www.jetpack.io/devbox/), [devenv](https://devenv.sh/) or [flox](https://floxdev.com/) by importing `withDevbox`, `withDevenv` or `withFlox` from `nix_installer_pipeline`:
 
