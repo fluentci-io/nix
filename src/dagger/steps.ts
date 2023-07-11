@@ -20,7 +20,7 @@ export const withNix = (ctr: Container) =>
 
 export const withDevbox = (ctr: Container) =>
   withNix(ctr)
-    .withExec(["adduser", "-D", "devbox"])
+    .withExec(["adduser", "--disabled-password", "devbox"])
     .withExec(["addgroup", "devbox", "wheel"])
     .withExec(["addgroup", "devbox", "nixbld"])
     .withEnvVariable("FORCE", "1")
@@ -34,12 +34,12 @@ export const withDevboxExec = (ctr: Container, cmds: string[]) =>
   cmds.reduce(
     (ctr, cmd) =>
       ctr.withExec(["sh", "-c", `eval "$(devbox global shellenv)" && ${cmd}`]),
-    ctr,
+    ctr
   );
 
 export const withDevenv = (ctr: Container) =>
   withNix(ctr)
-    .withExec(["adduser", "-D", "devenv"])
+    .withExec(["adduser", "--disabled-password", "devenv"])
     .withExec(["addgroup", "devenv", "wheel"])
     .withExec(["addgroup", "devenv", "nixbld"])
     .withEnvVariable("USER", "root")
@@ -67,7 +67,7 @@ export const withDevenv = (ctr: Container) =>
 
 export const withFlox = (ctr: Container) =>
   withNix(ctr)
-    .withExec(["adduser", "-D", "flox"])
+    .withExec(["adduser", "--disabled-password", "flox"])
     .withExec(["addgroup", "flox", "wheel"])
     .withExec(["addgroup", "flox", "nixbld"])
     .withExec([
