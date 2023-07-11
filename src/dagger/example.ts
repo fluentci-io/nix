@@ -7,7 +7,7 @@ connect(async (client: Client) => {
       .pipeline("nix-installer")
       .container()
       .from("alpine")
-      .withExec(["apk", "add", "curl"])
+      .withExec(["apk", "add", "curl"]),
   );
 
   const result = await ctr.stdout();

@@ -31,10 +31,10 @@ before_script:
   - curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux   --extra-conf "sandbox = false"   --init none   --no-confirm
   - export PATH="${PATH}:/nix/var/nix/profiles/default/bin"
   - nix run nixpkgs#hello
-
 ```
 
-This package also provides a Nix Installer for [Dagger](https://dagger.io/) pipelines:
+This package also provides a Nix Installer for [Dagger](https://dagger.io/)
+pipelines:
 
 ```ts
 import Client, { connect } from "https://esm.sh/@dagger.io/dagger@0.6.3";
@@ -48,19 +48,20 @@ connect(async (client: Client) => {
       .pipeline("nix-installer")
       .container()
       .from("alpine")
-      .withExec(["apk", "add", "curl"])
+      .withExec(["apk", "add", "curl"]),
   );
 
   const result = await ctr.stdout();
 
   console.log(result);
 });
-
 ```
 
 ## 🧪 Advanced Usage
 
-You can also setup [devbox](https://www.jetpack.io/devbox/), [devenv](https://devenv.sh/) or [flox](https://floxdev.com/) by importing `withDevbox`, `withDevenv` or `withFlox` from `nix_installer_pipeline`:
+You can also setup [devbox](https://www.jetpack.io/devbox/),
+[devenv](https://devenv.sh/) or [flox](https://floxdev.com/) by importing
+`withDevbox`, `withDevenv` or `withFlox` from `nix_installer_pipeline`:
 
 ```ts
 import Client, { connect } from "@dagger.io/dagger";
@@ -71,13 +72,11 @@ const { withDevbox, withNix } = Dagger;
 connect(async (client: Client) => {
   // you can use withDevbox, withDevenv or withFlox
   const ctr = withDevbox(
-    withNix(
-      client
-        .pipeline("nix-installer")
-        .container()
-        .from("alpine")
-        .withExec(["apk", "add", "curl", "bash"])
-    )
+    client
+      .pipeline("nix-installer")
+      .container()
+      .from("alpine")
+      .withExec(["apk", "add", "curl", "bash"]),
   );
 
   const result = await ctr.stdout();

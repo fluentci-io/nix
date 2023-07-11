@@ -1,3 +1,3 @@
-import { withNix, withDevenv, withDevbox, withFlox } from "./steps.ts";
+import { withDevbox, withDevenv, withFlox, withNix } from "./steps.ts";
 
-export { withNix, withDevenv, withDevbox, withFlox };
+export { withDevbox, withDevenv, withFlox, withNix };
