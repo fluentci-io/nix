@@ -1,8 +1,8 @@
 import Pipeline, {
-  installNix,
-  installFlox,
   installDevbox,
   installDevenv,
+  installFlox,
+  installNix,
 } from "./pipeline.ts";
 
-export { Pipeline, installNix, installFlox, installDevbox, installDevenv };
+export { installDevbox, installDevenv, installFlox, installNix, Pipeline };
