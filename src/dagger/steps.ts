@@ -21,7 +21,6 @@ export const withNix = (ctr: Container) =>
 export const withDevbox = (ctr: Container) =>
   withNix(ctr)
     .withExec(["adduser", "--disabled-password", "devbox"])
-    .withExec(["addgroup", "devbox", "wheel"])
     .withExec(["addgroup", "devbox", "nixbld"])
     .withEnvVariable("FORCE", "1")
     .withExec(["sh", "-c", "curl -fsSL https://get.jetpack.io/devbox | bash"])
@@ -40,7 +39,6 @@ export const withDevboxExec = (ctr: Container, cmds: string[]) =>
 export const withDevenv = (ctr: Container) =>
   withNix(ctr)
     .withExec(["adduser", "--disabled-password", "devenv"])
-    .withExec(["addgroup", "devenv", "wheel"])
     .withExec(["addgroup", "devenv", "nixbld"])
     .withEnvVariable("USER", "root")
     .withExec([
@@ -68,7 +66,6 @@ export const withDevenv = (ctr: Container) =>
 export const withFlox = (ctr: Container) =>
   withNix(ctr)
     .withExec(["adduser", "--disabled-password", "flox"])
-    .withExec(["addgroup", "flox", "wheel"])
     .withExec(["addgroup", "flox", "nixbld"])
     .withExec([
       "sh",
