@@ -5,7 +5,7 @@ export const withNix = (ctr: Container) =>
     .withExec([
       "sh",
       "-c",
-      'curl --proto =https --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux --extra-conf "sandbox = false" --init none --no-confirm',
+      '[ ! -f "/nix/receipt.json" ] && curl --proto =https --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install linux --extra-conf "sandbox = false" --init none --no-confirm',
     ])
     .withExec([
       "sed",
