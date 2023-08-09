@@ -28,7 +28,7 @@ This will create a `.fluentci` folder in your project.
 ## Example
 
 ```typescript
-import Client, { connect } from "@dagger.io/dagger";
+import { Client, connect } from "https://esm.sh/@dagger.io/dagger@0.8.1";
 import { Dagger } from "https://deno.land/x/nix_installer_pipeline/mod.ts";
 
 const { withDevbox } = Dagger;
