@@ -29,9 +29,7 @@ This will create a `.fluentci` folder in your project.
 
 ```typescript
 import Client, { connect } from "https://sdk.fluentci.io/latest/mod.ts";
-import { Dagger } from "https://deno.land/x/nix_installer_pipeline/mod.ts";
-
-const { withDevbox } = Dagger;
+import { withDevbox } from "https://nix.fluentci.io/latest/mod.ts";
 
 connect(async (client: Client) => {
   // you can use withDevbox, withDevenv or withFlox
