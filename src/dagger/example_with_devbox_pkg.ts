@@ -1,4 +1,4 @@
-import Client, { connect } from "@dagger.io/dagger";
+import Client, { connect } from "@fluentci.io/dagger";
 import { withDevboxExec, withPackageFromDevbox } from "./steps.ts";
 
 connect(async (client: Client) => {
@@ -9,9 +9,9 @@ connect(async (client: Client) => {
         .container()
         .from("alpine")
         .withExec(["apk", "add", "curl", "bash"]),
-      ["gh"],
+      ["gh"]
     ),
-    ["gh version"],
+    ["gh version"]
   );
 
   const result = await ctr.stdout();

@@ -1,4 +1,4 @@
-import Client, { connect } from "@dagger.io/dagger";
+import Client, { connect } from "@fluentci.io/dagger";
 import { withDevbox } from "./steps.ts";
 
 connect(async (client: Client) => {
@@ -7,7 +7,7 @@ connect(async (client: Client) => {
       .pipeline("nix-installer")
       .container()
       .from("alpine")
-      .withExec(["apk", "add", "curl", "bash"]),
+      .withExec(["apk", "add", "curl", "bash"])
   )
     .withExec(["devbox", "global", "add", "gh"])
     .withExec(["sh", "-c", 'eval "$(devbox global shellenv)" && gh version']);
