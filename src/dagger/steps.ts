@@ -1,4 +1,4 @@
-import { Container } from "@fluentci.io/dagger";
+import { Container } from "../../deps.ts";
 
 export const withNix = (ctr: Container) =>
   ctr

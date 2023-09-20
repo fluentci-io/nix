@@ -1,4 +1,4 @@
-import Client, { connect } from "@fluentci.io/dagger";
+import Client, { connect } from "../../deps.ts";
 import { withDevenv } from "./steps.ts";
 
 connect(async (client: Client) => {
